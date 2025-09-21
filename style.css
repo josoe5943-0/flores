@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to top, #4caf50 35%, #87ceeb 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#startBtn {
+  padding: 18px 40px;
+  font-size: 22px;
+  background: linear-gradient(45deg, #ffd700, #ffec8b);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  transition: transform 0.2s, background 0.4s;
+  z-index: 10;
+}
+
+#startBtn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(45deg, #ffec8b, #ffd700);
+}
+
+.garden {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  overflow: hidden;
+}
+
+.flower {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  transform: scale(0);
+  animation: grow 2s forwards, sway 3s ease-in-out infinite alternate;
+}
+
+.petal {
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  background: radial-gradient(circle at top, #fff38a, #ffd54a);
+  border-radius: 50% 50% 0 0;
+  transform-origin: bottom center;
+  box-shadow: 0 0 8px rgba(255,255,0,0.7);
+}
+
+.center {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle, #fff1d1, #f5a623);
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 10px #f5a623;
+}
+
+@keyframes grow {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes sway {
+  from { transform: rotate(-5deg) scale(1); }
+  to { transform: rotate(5deg) scale(1); }
+}
+
+#message {
+  position: absolute;
+  bottom: 20px;
+  font-size: 24px;
+  color: #fff8dc;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  display: none;
+  animation: fadeIn 3s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.sun {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #fffacd, #ffd700);
+  border-radius: 50%;
+  box-shadow: 0 0 60px #ffd700;
+  animation: sunMove 20s linear infinite alternate;
+}
+
+@keyframes sunMove {
+  0% { top: 30px; right: 40px; }
+  50% { top: 50px; right: 60px; }
+  100% { top: 30px; right: 40px; }
+}
+
+.grass {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(to top, #006400, #32cd32);
+}
+
+.butterfly {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle at 20% 20%, #ff69b4, #ff1493);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: fly linear infinite;
+}
+
+@keyframes fly {
+  0% { transform: translate(0px,0px) rotate(0deg); }
+  50% { transform: translate(200px,-150px) rotate(180deg); }
+  100% { transform: translate(0px,0px) rotate(360deg); }
+}
